@@ -7,4 +7,7 @@ Based on Hodge decomposition method (https://github.com/laplcebeltrami/hodge) fr
 - PCG settings are set default as 1e-8 relative tolerance and 500 iterations. Modify if needed.
 - Requires MATLAB R2017b or later for efficient decomposition() and pcg() functions.
 
+## Citation & Attribution
+This modification was developed to enable large-scale Hodge decomposition of functional brain networks with dense connectivity. It maintains mathematical equivalence with the original algorithm described in _Hodge Decomposition of Functional Human Brain Networks_ while optimizing for scalability and numerical stability. If you use this implementation in your research, please cite the original paper and acknowledge this optimized version.
+
 (C) 2025 Oct. Hanyang Ruan. Technical University of Munich
