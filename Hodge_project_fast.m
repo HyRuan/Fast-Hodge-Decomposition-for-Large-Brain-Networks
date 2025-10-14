@@ -1,4 +1,4 @@
-function M = hodge_project_fast(Yvec, skel)
+function M = Hodge_project_fast(Yvec, skel)
 % Project [E x 1] gradient or curl vector back to [P x P] matrix
 % INPUT
 % Yvec: [E x 1] double. Gradient or curl flow vector
@@ -14,4 +14,5 @@ function M = hodge_project_fast(Yvec, skel)
     M = M_upper + M_upper.';
     M(1:P+1:end) = 0;
     M = full(M);
+
 end
