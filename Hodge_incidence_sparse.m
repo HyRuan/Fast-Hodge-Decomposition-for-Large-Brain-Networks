@@ -24,10 +24,10 @@ E = size(Elist,1);
 T = size(Tlist,1);
 
 % B1: Node - Edge. Direction: i->j
-i_idx = [Elist(:,1); Elist(:,2)];
-j_idx = [(1:E)'; (1:E)'];
-vals  = [ones(E,1); -ones(E,1)];
-B1 = sparse(i_idx, j_idx, vals, P, E);
+i_ind = double(Elist(:,1));
+j_ind = double(Elist(:,2));
+col = (1:E).';
+B1 = sparse([i_ind; j_ind], [col; col], [-ones(E,1); +ones(E,1)], P, E);
 
 % A look up table EID for edge signs 
 % EID(a,b) = +e  if the e-th edge has a<b
@@ -55,4 +55,5 @@ vals = [+s_ij; +s_jk; -s_ik];
 B2 = sparse(rows, cols, vals, E, T);
 
 B = struct('B0', [], 'B1', B1, 'B2', B2);
+
 end
