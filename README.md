@@ -3,8 +3,6 @@ Based on Hodge decomposition method (https://github.com/laplcebeltrami/hodge) fr
 
 ## Practical Notes
 - Use this version when processing dense functional connectivity matrices or any complete graph (e.g., fMRI correlation networks). You can simply replace the previous functions with same names.
-- The harmonic component may show values on the order of 1e-12 due to iterative tolerance—these can safely be thresholded to zero if needed.
-- PCG settings are set default as 1e-8 relative tolerance and 500 iterations. Modify if needed.
-- Requires MATLAB R2017b or later for efficient decomposition() and pcg() functions.
+- Oct 17 update: now the codes can also properly handle sparse graph, with tolerable error (max 1e-06).
 
 (C) 2025 Oct. Hanyang Ruan. Technical University of Munich
