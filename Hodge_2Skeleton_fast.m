@@ -19,16 +19,17 @@ function Skel = Hodge_2Skeleton_fast(A_bin)
     is_complete = (E == P*(P-1)/2);
 
     if is_complete
-        % Fast track for a complete graph
+        % ------- Fast track for a complete graph -------
         % Edge: All pairwise combinations with i<j
         EdgeList = double(nchoosek(double(1:P), 2));  % [E x 2]
         % Triangle: All triplets with i<j<k
         TriList  = double(nchoosek(double(1:P), 3));  % [T x 3]
     else
-        % Sparse graph track
+        % ------- Sparse graph track -------
         % Edge list 
-        [ii, jj] = find(U);                         % i<j
-        EdgeList = double([ii jj]);
+        [i_ind, j_ind] = find(U);                         % i<j
+        EdgeList = double([i_ind j_ind]);
+        EdgeList = sparse(sortrows(EdgeList, [1 2]));
         % Triangle list 
         TriList = zeros(0,3,'double');
         chunk = 5e5; buf = zeros(chunk,3,'double'); ptr = 0;
@@ -61,3 +62,4 @@ function Skel = Hodge_2Skeleton_fast(A_bin)
                   'EdgeList', EdgeList, ...
                   'TriList',  TriList);
 end
+
